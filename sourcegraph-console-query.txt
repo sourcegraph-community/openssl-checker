@@ -1,9 +1,15 @@
+repo:github.com/sourcegraph-community/openssl-checker
+
 patterntype:regexp 
 
-(f:Cargo.lock openssl-src AND version\s*=\s*"300\.[0-9\.]+\+3\.0\.[0-6])
+((f:Cargo.lock openssl-src AND version\s*=\s*"300\.[0-9\.]+\+3\.0\.[0-6])
 
 or
 
-(f:requirements.*txt cryptography(\s*[=~]=\s*(36\.|37\.|38\.0\.[0-2]))) OR (f:poetry.lock name\s*=\s*"cryptography" AND version\s*=\s*"(36\.|37\.|38\.0\.[0-2]))
+(f:requirements.*txt cryptography(\s*[=~]=\s*(36\.|37\.|38\.0\.[0-2]))) 
+
+OR (f:poetry.lock name\s*=\s*"cryptography" 
+
+AND version\s*=\s*"(36\.|37\.|38\.0\.[0-2])))
 
 fork:yes 
